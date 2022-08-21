@@ -39,10 +39,10 @@ public class MainController {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity <LoanDTO> entity = new HttpEntity<LoanDTO>(loanDTO,headers);
 
-        /*Long loanCode = restTemplate.getForObject("http://10.12.46.70:8080/api/v1/loan/getLoanId",
+        Long loanCode = restTemplate.getForObject("http://10.12.46.70:8080/api/v1/loan/getLoanId",
                 Long.class,
                 loanDTO);
-        System.out.println("DDDDDDDDDDDDDDD: " + loanCode);*/
+        System.out.println("DDDDDDDDDDDDDDD: " + loanCode);
         Long body = restTemplate.exchange("http://10.12.46.70:8080/api/v1/loan/getLoanId",
                 HttpMethod.POST, entity, Long.class).getBody();
         System.out.println("DDDDDDDDDDDDDDD: " + body);
