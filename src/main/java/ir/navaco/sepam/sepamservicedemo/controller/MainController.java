@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 @AllArgsConstructor
 public class MainController {
 
@@ -30,23 +30,24 @@ public class MainController {
     private RestTemplate restTemplate;
 
 
-    @GetMapping("/getBank/{code}")
-    public String getBank(@PathVariable Long code) {
-        BankEntity bank = bankService.getBank(code);
+    @GetMapping()
+    public String getBank() {
+       /* BankEntity bank = bankService.getBank(code);
         LoanDTO loanDTO = new LoanDTO();
         loanDTO.setLoanCode(1L);
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity <LoanDTO> entity = new HttpEntity<LoanDTO>(loanDTO,headers);
+        HttpEntity <LoanDTO> entity = new HttpEntity<LoanDTO>(loanDTO,headers);*/
 
-        Long loanCode = restTemplate.getForObject("http://10.12.46.70:8080/api/v1/loan/getLoanId",
+        /*Long loanCode = restTemplate.getForObject("http://10.12.46.70:8080/api/v1/loan/getLoanId",
                 Long.class,
                 loanDTO);
-        System.out.println("DDDDDDDDDDDDDDD: " + loanCode);
-        Long body = restTemplate.exchange("http://10.12.46.70:8080/api/v1/loan/getLoanId",
+        System.out.println("DDDDDDDDDDDDDDD: " + loanCode);*/
+        /*Long body = restTemplate.exchange("http://10.12.46.70:8080/api/v1/loan/getLoanId",
                 HttpMethod.POST, entity, Long.class).getBody();
-        System.out.println("DDDDDDDDDDDDDDD: " + body);
-        return bank.getName();
+        System.out.println("DDDDDDDDDDDDDDD: " + body);*/
+       // return bank.getName();
+        return "Name";
     }
 
     private BankDTO setBank(BankEntity bank) {

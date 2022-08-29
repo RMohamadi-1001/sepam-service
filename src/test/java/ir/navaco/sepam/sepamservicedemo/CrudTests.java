@@ -44,7 +44,7 @@ public class CrudTests {
         bankE.setCode(1111L);
         bankE.setActive(true);
         bankE.setName("Bank");
-        bankRepository.save(bankE);
+        BankEntity save = bankRepository.saveAndFlush(bankE);
 
         assertThat(bankRepository.findByCode(1111L).get().getCode())
                 .isEqualTo(1111L);

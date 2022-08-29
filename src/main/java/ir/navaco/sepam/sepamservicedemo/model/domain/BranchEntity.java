@@ -1,5 +1,6 @@
 package ir.navaco.sepam.sepamservicedemo.model.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = BranchEntity.TABLE_NAME)
 @Getter
 @Setter
+@Builder
 public class BranchEntity {
     static final String TABLE_NAME = "MSPS_BRANCH";
 
@@ -17,10 +19,10 @@ public class BranchEntity {
     @Column(name = "BRN_ID")
     private Long id;
 
-    @Column(name = "BRN_CODE", nullable = false)
+    @Column(name = "BRN_CODE", nullable = true)
     private Long code;
 
-    @Column(name = "BRN_NAME", nullable = false)
+    @Column(name = "BRN_NAME", nullable = true)
     private String name;
 
     @Column(name = "BRN_ADDRESS", nullable = true)

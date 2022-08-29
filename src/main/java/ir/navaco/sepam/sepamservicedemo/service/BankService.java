@@ -19,7 +19,7 @@ public class BankService {
         bankE.setCode(1111L);
         bankE.setActive(true);
         bankE.setName("Bank Maskan");
-        //bankRepository.save(bankE);
+        BankEntity save = bankRepository.saveAndFlush(bankE);
 
         //Optional<BankEntity> bankEntity = bankRepository.findByCode(code);
        // return bankEntity.orElse(null);
