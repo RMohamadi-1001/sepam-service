@@ -8,5 +8,6 @@ import lombok.Setter;
 public class BankDTO {
     private Long id;
     private Long code;
+    private String bankName;
     private String name;
 }
